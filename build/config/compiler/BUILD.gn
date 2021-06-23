@@ -892,7 +892,7 @@ config("optimize") {
     # build also specifies /Os and /GF but these are implied by /O1.
     cflags = [ "/O1" ] + common_optimize_on_cflags + [ "/Oi" ]
   } else if (is_ios) {
-    cflags = [ "-Os" ] + common_optimize_on_cflags  # Favor size over speed.
+    cflags = [ "-Oz" ] + common_optimize_on_cflags  # Favor size over speed.
   } else if (is_android || is_fuchsia) {
     cflags = [ "-Oz" ] + common_optimize_on_cflags  # Favor size over speed.
     if (enable_lto) {
